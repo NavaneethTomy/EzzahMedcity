@@ -1,0 +1,21 @@
+li:hover {
+    background-color: rgb(22, 165, 226);
+    border-radius: 8px;
+}
+
+.anton-font {
+    font-family: 'Anton', sans-serif;
+  }
+  
+
+  .nav-item.active .nav-link {
+    background-color: #003cff; /* Your pressed color */
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+.bg-light-blue {
+  background-color: #5bb7d5 !important;
+}
+

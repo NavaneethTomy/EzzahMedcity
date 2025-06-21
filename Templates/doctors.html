@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+<section class="doctors-section py-5 bg-light">
+    <div class="container">
+        <h2 class= "text-center fw-bold "style=" color:#023b90; font-family: 'Playfair Display', serif;">MEET OUR DOCTORS</h2>
+        <hr class="mx-auto mb-5" style="width: 80px; height: 4px; background-color: #0d6efd; border-radius: 2px;">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for f in docs %}
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 doctor-card">
+                    <img src="{{ f.doc_image.url }}" class="card-img-top" alt="{{ f.doc_name }}" style="height: 250px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #333;">Dr. {{ f.doc_name }}</h5>
+                        <p class="card-text text-muted">{{ f.doc_spec }}</p>
+                        <h6 class="text-primary">{{ f.dep_name }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No doctors available at the moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+.doctor-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+h6.text-primary {
+    font-size: 1rem;
+    font-weight: 500;
+}
+</style>
+{% endblock %}
