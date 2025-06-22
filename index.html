@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<!-- Carousel -->
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static '/image/car1.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static '/image/car2.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static '/image/car3.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static '/image/hos1.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Info Boxes -->
+<section class="container mt-4">
+  <div class="row g-3 justify-content-center">
+    <div class="col-6 col-sm-4 col-md-3">
+      <a href="{% url 'doctors' %}" class="text-decoration-none">
+        <div class="info-box h-100">
+          <i class="fas fa-user-md"></i>
+          <h5>FIND A DOCTOR</h5>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3">
+      <a href="{% url 'booking' %}" class="text-decoration-none">
+        <div class="info-box h-100">
+          <i class="fas fa-calendar-alt"></i>
+          <h5>REQUEST APPOINTMENT</h5>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3">
+      <a href="{% url 'booking' %}" class="text-decoration-none">
+        <div class="info-box h-100">
+          <i class="fas fa-heartbeat"></i>
+          <h5>HEALTH CHECK UP</h5>
+        </div>
+      </a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3">
+      <a href="{% url 'departments' %}" class="text-decoration-none">
+        <div class="info-box h-100">
+          <i class="fas fa-hospital"></i>
+          <h5>OUR DEPARTMENTS</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- News Section -->
+<section class="news-section mt-4">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
+    <h4 class="mb-2 mb-md-0 me-md-3">NEWS</h4>
+    <div class="news-marquee">
+      <span>
+        EZZAH ANNEX 1 OPEN. 3D DIGITAL MAMMOGRAM, MRI MACHINE INSTALLED. EZZAH MEDCITY RECEIVES GREEN OT CERTIFICATION...
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  .info-box {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .info-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .info-box i {
+    font-size: 2rem;
+    color: #04c6bc;
+    margin-bottom: 10px;
+  }
+
+  .info-box h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  .news-section {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 15px 0;
+  }
+
+  .news-section h4 {
+    background-color: #00c4cc;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .news-marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .news-marquee span {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    padding-left: 100%;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+{% endblock %}
