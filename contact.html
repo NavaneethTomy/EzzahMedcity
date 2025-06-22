@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Set the background color for the entire page */
+  body {
+    background-color: #c5ebec; /* Solid gray background */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Section background */
+  .section-bg {
+    background: #c5ebec;
+    padding: 40px 0;
+  }
+
+  /* Contact card styling */
+  .contact-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-card a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .contact-card a:hover {
+    color: #04c6bc;
+  }
+
+  .contact-icon {
+    color: #04c6bc;
+  }
+
+  .contact-box {
+    min-height: 100px;
+  }
+
+  /* Contact form styling */
+  .contact-form {
+    background-color: #f5fafa;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+
+  .contact-form h3 {
+    color: #023b90;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .btn-orange {
+    background-color: #13b0d7;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .btn-orange:hover {
+    background-color: #d5185e;
+    color: white;
+  }
+
+  /* Map styling */
+  .map-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 500px;
+    border: 0;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .contact-card {
+      padding: 15px;
+    }
+
+    .contact-card h6 {
+      font-size: 0.9rem;
+    }
+
+    .contact-card p {
+      font-size: 0.85rem;
+    }
+
+    .contact-form {
+      padding: 20px;
+    }
+
+    .contact-form h3 {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-bg {
+      padding: 20px 0;
+    }
+
+    .contact-card {
+      padding: 10px;
+    }
+
+    .contact-card h6 {
+      font-size: 0.8rem;
+    }
+
+    .contact-card p {
+      font-size: 0.75rem;
+    }
+
+    .contact-form {
+      padding: 15px;
+    }
+
+    .contact-form h3 {
+      font-size: 1.1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 8px;
+    }
+
+    .btn-orange {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+
+    .map-container iframe {
+      height: 300px; /* Smaller height for tablets */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .contact-card {
+      padding: 8px;
+    }
+
+    .contact-card h6 {
+      font-size: 0.7rem;
+    }
+
+    .contact-card p {
+      font-size: 0.65rem;
+    }
+
+    .contact-form {
+      padding: 10px;
+    }
+
+    .contact-form h3 {
+      font-size: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 6px;
+    }
+
+    .btn-orange {
+      padding: 6px 15px;
+      font-size: 0.8rem;
+    }
+
+    .map-container iframe {
+      height: 250px; /* Even smaller for mobile */
+    }
+  }
+</style>
+
+<!-- Contact Information Section -->
+<section class="py-5 section-bg">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-phone fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">MAIN LINES</h6>
+          <p class="mb-0">
+            <a href="tel:04842880000">0484 2880000</a><br>
+            <a href="tel:04844330000">0484 4330000</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-mobile-alt fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">APPOINTMENTS</h6>
+          <p class="mb-0">
+            <a href="tel:04842880288">0484 2880288</a><br>
+            <a href="tel:9388288000">9388 288000</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-ambulance fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">AMBULANCE</h6>
+          <p class="mb-0">
+            <a href="tel:9388108108">9388 108 108</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-users fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">HR DEPARTMENT</h6>
+          <p class="mb-0">
+            <a href="tel:04844332322">0484 4332322</a><br>
+            <a href="tel:04844332323">0484 4332323</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-cogs fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">ENGINEERING</h6>
+          <p class="mb-0">
+            <a href="tel:04842880804">0484 2880804</a><br>
+            <a href="tel:04844331804">0484 4331804</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-bullhorn fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">MARKETING</h6>
+          <p class="mb-0">
+            <a href="tel:04842880048">0484 2880048</a><br>
+            <a href="tel:04844331048">0484 4331048</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-calculator fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">ACCOUNTS</h6>
+          <p class="mb-0">
+            <a href="tel:04844332363">0484 4332363</a><br>
+            <a href="tel:04844332365">0484 4332365</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4 d-flex">
+        <div class="contact-card w-100">
+          <i class="fas fa-envelope fa-2x mb-2 contact-icon"></i>
+          <h6 class="fw-bold">EMAIL</h6>
+          <p class="mb-0">
+            <a href="mailto:care@ezzahmedcity.org">care@ezzahmedcity.org</a><br>
+            <a href="mailto:marketing@ezzahmedcity.org">marketing@ezzahmedcity.org</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-12">
+        <div class="contact-form">
+          <h3 class="text-center mb-4">Fill out the form below and we’ll be in touch shortly</h3>
+          <form method="POST" action="">
+            {% csrf_token %}
+            {{ formm|crispy }}
+            <div class="d-grid mt-3">
+              <button class="btn btn-orange btn-lg" type="submit">Send now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded Map</title>
+  <style>
+      /* Ensure the map takes up the desired space */
+      iframe {
+          width: 100%;
+          height: 500px;
+          border: 0;
+      }
+  </style>
+</head>
+<body>
+  <!-- Embed Google Map using iframe -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62850.23842231065!2d76.388183!3d10.087621!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080915485f087b%3A0xe9ea47ec734cd857!2sRajagiri%20Hospital!5e0!3m2!1sen!2sus!4v1749840035166!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+{% endblock %}

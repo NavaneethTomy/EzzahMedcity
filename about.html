@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} About Us{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('{% static 'image/hos5.png' %}');">
+    <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white" style="background: rgba(0, 0, 0, 0.5);">
+        <h1 style="font-size: 48px; font-family: 'Playfair Display', serif; font-weight: bold;">Welcome to Ezzah Medcity</h1>
+        <p style="font-size: 20px; max-width: 800px; font-family: 'Playfair Display', serif;">
+            Where compassion meets cutting-edge healthcare. We redefine healing with expertise and empathy.
+        </p>
+    </div>
+  </section>
+<!-- About Text -->
+<section class="content-section py-5">
+    <div class="container text-secondary">
+        <h2 class="mb-4" style="color: #023b90; font-family: 'Playfair Display', serif;">ABOUT US</h2>
+        <p style="color: #249acd; font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+            Ezzah Medcity stands as a modern beacon of healing, compassion, and innovation in healthcare. Established with the mission of delivering affordable, accessible, and world-class medical care, Ezzah Medcity is committed to transforming lives through quality treatment, advanced diagnostics, and personalized care.
+        </p>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+            Strategically located in a serene and accessible area, the hospital offers a peaceful, patient-friendly environment supported by state-of-the-art infrastructure and a dedicated team of medical professionals. From the moment you enter, Ezzah Medcity ensures a warm and responsive approach that combines medical excellence with human touch.
+        </p>
+    </div>
+</section>
+
+<!-- Image and Details Section -->
+<section class="content-section py-0">
+    <div class="container">
+        <div class="row align-items-center gy-4">
+            <div class="col-md-6 style="margin-top: -110px;">
+                <img src="{% static 'image/hos3.jpg' %}" alt="Hospital Interior" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 text-secondary style="margin-top: -70px;">
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+                    Ezzah Medcity adheres to the highest standards of safety and clinical practice, with a focus on ethical treatment, transparency, and patient rights. Our systems are driven by advanced digital health records and evidence-based treatment protocols to ensure accurate, efficient, and effective care.
+                </p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+                    The consistent pursuit of achieving uncompromised excellence in healthcare has won Ezzah Medcity many accolades and appreciation on national and international platforms. The hospital is accredited by NABH, NABL, and holds ISO 22000:2018 certification for its Food & Beverage services.
+                </p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+                    The synergy of Western medicine and Ayurveda offers our patients a holistic healing experience. With telehealth integration, Ezzah Medcity reaches patients even beyond borders.
+                </p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.125rem;">
+                    Ezzah Medcity is more than just a hospital—it is a center of hope, healing, and health. Our goal is to build a healthier community through preventive care, awareness programs, and continued medical innovation.
+                    Join us in our journey to make healthcare more human, more reachable, and more reliable—only at Ezzah Medcity.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

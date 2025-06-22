@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Departments
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row align-items-start">
+        <!-- Left Content -->
+        <div class="col-12 col-lg-4 mb-4">
+            <p class="text-uppercase fw-semibold" style="color: #dc4c80; letter-spacing: 1px;">Departments</p>
+            <h2 class="fw-bold mb-3" style="font-family: 'Playfair Display', serif; color: #023b90;">OUR DEPARTMENTS</h2>
+            <p class="text-muted" style="line-height: 1.6;">
+                To undertake specialized and holistic healthcare services of world standard and to provide them to all sections of society...
+            </p>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-12 col-lg-8">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                {% for d in dept %}
+                <div class="col">
+                    <div class="card h-100 text-center border-0 department-card p-3">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            {% if d.icon %}
+    <img src="{{ d.icon.url }}" alt="{{ d.dep_name }} Icon" width="40" height="40" class="icon-img">
+{% else %}
+    <img src="{% static 'image/default_icon.png' %}" alt="Default Icon" width="40" height="40" class="icon-img">
+{% endif %}
+
+                        </div>
+                        <h6 class="fw-bold mb-1" style="font-size: 1rem; color: #023b90;">{{ d.dep_name }}</h6>
+                        <a href="{% url 'department_detail' d.id %}">Explore</a>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+<style>
+
+
+.department-card {
+    background-color: #ffffff; /* default white */
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #e0f7fa; /* ← your new hover background color */
+}
+
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: #e0f7fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+/* Smooth upward move and return */
+.department-card:hover .icon-wrapper {
+    transform: translateY(-8px); /* slight upward movement */
+    background-color: #04c6bc;
+}
+
+/* Optional: invert icon color on hover */
+.department-card:hover .icon-img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.8s ease;
+}
+
+
+</style>
+{% endblock %}  make it suitable for both mobile and desktop view
